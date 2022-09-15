@@ -1,0 +1,21 @@
+@import '/styles/variables';
+
+.container{
+  margin: 0 auto;
+  max-width: 900px;
+}
+.header{
+  background-color: lightgray;
+}
+.nav{
+  margin: 0 80px;
+
+  &_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_item{
+    padding: 15px 30px;
+  }
+}
