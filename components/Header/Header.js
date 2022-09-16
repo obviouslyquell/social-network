@@ -3,9 +3,9 @@ import Link from 'next/link';
 import styles from './Header.module.scss'
 
 export default function Header() {
-  let headerClass = classNames(styles.container, styles.header);
+  let headerClassnames = classNames(styles.container, styles.header);
   return (
-    <header className={headerClass}>
+    <header className={headerClassnames}>
       <nav className={styles.nav}>
         <ul className={styles.nav_list}>
           <li className={styles.nav_item}><Link href='/home'>Home</Link></li>
