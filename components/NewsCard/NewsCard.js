@@ -2,7 +2,7 @@ import styles from './NewsCard.module.scss'
 import avatar from './User.png'
 import React from 'react'
 import Image from 'next/image'
-import { useUserContext } from '../../context/User'
+import { useUserContext } from '../../context/Users'
 
 function NewsCard({data}) {
     const users = useUserContext();

@@ -1,5 +1,5 @@
 import '../styles/globals.scss'
-import { UserContextWrapper } from '../context/User'
+import { UserContextWrapper } from '../context/Users'
 
 function MyApp({ Component, pageProps }) {
   return (
