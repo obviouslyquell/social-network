@@ -1,0 +1,9 @@
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.users{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}

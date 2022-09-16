@@ -2,10 +2,19 @@
 
 .container{
   margin: 0 auto;
-  max-width: 900px;
+}
+.fake__header{
+  height: 48px;
 }
 .header{
-  background-color: lightgray;
+  background-color: $mainGray;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  max-height: 48px;
+  border-bottom: 1px solid $separatorGray;
+  z-index: 100;
 }
 .nav{
   margin: 0 80px;
