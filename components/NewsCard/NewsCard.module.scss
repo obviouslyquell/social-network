@@ -1,0 +1,31 @@
+@import '/styles/variables';
+
+.news__card{
+    background-color: $mainGray;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid $separatorGray;
+    border-radius: 10px;
+}
+.news__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.user__picture{
+    border-radius: 50%;
+    border: 1px solid $separatorGray;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.user__info{
+    display: flex;
+}
+.user__name{
+    font-size: 16px;
+}
+.news__content{
+    font-size: 12px;
+}
