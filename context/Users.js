@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { createContext, useContext, useEffect, useState } from 'react';
+import { useCurrentUserContext } from './CurrentUser';
 
 const UsersContext = createContext();
 
-export function UserContextWrapper({ children }) {
-  
+export function UsersContextWrapper({ children }) {
   const [users, setUsers] = useState()
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/users').then(res=>setUsers(res.data))
@@ -16,6 +16,6 @@ export function UserContextWrapper({ children }) {
   );
 }
 
-export function useUserContext() {
+export function useUsersContext() {
   return useContext(UsersContext);
 }

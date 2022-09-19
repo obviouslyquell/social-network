@@ -3,6 +3,7 @@ import styles from './Registration.module.scss'
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import axios from 'axios';
+import { useCurrentUserContext } from '../../context/CurrentUser';
 
 function Registration() {
     const registrationClassnames = classNames(styles.container, styles.registration)
@@ -10,8 +11,8 @@ function Registration() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    
-    console.log(password,login)
+    const { user, setUser } = useCurrentUserContext();
+
     const loginHandler = (e) => {
         setLogin(e.target.value)
     }
@@ -21,12 +22,19 @@ function Registration() {
     const nameHandler = (e) => {
         setName(e.target.value)
     }
-    const sendData = (e) => {
+    const sendData = async (e) => {
         e.preventDefault();
-        if(password && login){
-            axios.post('https://6324bd619075b9cbee414973.mockapi.io/users', {password: password, login: login, name: name})
+        if(!!password && !!login && !!name){
+            await axios.post('https://6324bd619075b9cbee414973.mockapi.io/users', {password: password, login: login, name: name})
+            .then((res)=>setUser(res.data))
+            document.cookie=`SNuserId=${user.id}`
+            window.location.reload();
+        }else{
+            alert('Fill all the inputs, idiot...')
         }
+        
     }
+    console.log(user)
   return (
     <div className={registrationClassnames}>
         <div className={styles.registration__form}>

@@ -1,11 +1,13 @@
 import '../styles/globals.scss'
-import { UserContextWrapper } from '../context/Users'
-
+import { UsersContextWrapper } from '../context/Users'
+import { CurrentUserContextWrapper } from '../context/CurrentUser'
 function MyApp({ Component, pageProps }) {
   return (
-    <UserContextWrapper>
-      <Component {...pageProps} />
-    </UserContextWrapper>
+    <CurrentUserContextWrapper>
+      <UsersContextWrapper>
+        <Component {...pageProps} />
+      </UsersContextWrapper>
+    </CurrentUserContextWrapper>
   )
 }
 

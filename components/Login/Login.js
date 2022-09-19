@@ -1,10 +1,14 @@
 import styles from './Login.module.scss'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
+import { useCurrentUserContext } from '../../context/CurrentUser';
+import axios from 'axios';
 
 function Login() {
     const loginClassnames = classNames(styles.container, styles.login);
+    const {user, setUser} = useCurrentUserContext();
+
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const loginHandler = (e) => {
@@ -14,7 +18,18 @@ function Login() {
         setPassword(e.target.value)
     }
     const sendData = (e) => {
-
+        e.preventDefault()
+        axios.get('https://6324bd619075b9cbee414973.mockapi.io/users')
+        .then((res)=>{
+            if(res.data.find(e=>(e.login === login && e.password === password))){
+                const currentUserFromQuery = res.data.find(e=>(e.login === login && e.password === password));
+                setUser(currentUserFromQuery);
+                window.location.reload()
+            }else{
+                alert('wrong login/password')
+            }
+        })
+        .catch((e)=>alert(e))
     }
   return (
     <div className={loginClassnames}>

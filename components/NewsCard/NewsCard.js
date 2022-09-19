@@ -2,15 +2,14 @@ import styles from './NewsCard.module.scss'
 import avatar from './User.png'
 import React from 'react'
 import Image from 'next/image'
-import { useUserContext } from '../../context/Users'
+import { useUsersContext } from '../../context/Users'
 
 function NewsCard({data}) {
-    const users = useUserContext();
+    const users = useUsersContext();
     let user;
     if(users){
         user = users.find(el => el.id === data.userId); 
-    }   
-    console.log(data)
+    }
   return (
     <div className={styles.news__card}>
         <div className={styles.news__header}>
