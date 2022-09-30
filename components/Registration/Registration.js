@@ -1,5 +1,4 @@
 import styles from './Registration.module.scss'
-
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import axios from 'axios';
@@ -26,15 +25,16 @@ function Registration() {
         e.preventDefault();
         if(!!password && !!login && !!name){
             await axios.post('https://6324bd619075b9cbee414973.mockapi.io/users', {password: password, login: login, name: name})
-            .then((res)=>setUser(res.data))
-            document.cookie=`SNuserId=${user.id}`
-            window.location.reload();
+            .then((res)=>{
+                setUser(res.data)
+                document.cookie=`SNuserId=${res.data.id}`
+                document.cookie=`SNuserAvatar=${res.data.avatar}`
+            })
+
         }else{
             alert('Fill all the inputs, idiot...')
         }
-        
     }
-    console.log(user)
   return (
     <div className={registrationClassnames}>
         <div className={styles.registration__form}>

@@ -1,0 +1,8 @@
+@import '/styles/variables';
+
+.container{
+    background-color: $mainGray;
+    border: 1px solid $separatorGray;
+    border-radius: 30px;
+    padding: 15px;
+}

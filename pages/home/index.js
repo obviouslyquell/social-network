@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import Header from '../../components/Header/Header'
-import Login from '../../components/Login/Login'
-import Registration from '../../components/Registration/Registration'
+import MyPage from '../../components/MyPage/MyPage'
 import styles from './Home.module.scss'
 
 const Home = () => {
@@ -10,8 +9,7 @@ const Home = () => {
     <>
         <Header />
         <div className={homeClassnames}>
-          <Registration />
-          <Login />
+          <MyPage />
         </div>
     </>
   )

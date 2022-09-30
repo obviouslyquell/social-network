@@ -24,7 +24,8 @@ function Login() {
             if(res.data.find(e=>(e.login === login && e.password === password))){
                 const currentUserFromQuery = res.data.find(e=>(e.login === login && e.password === password));
                 setUser(currentUserFromQuery);
-                window.location.reload()
+                document.cookie=`SNuserId=${currentUserFromQuery.id}`
+                document.cookie=`SNuserAvatar=${currentUserFromQuery.avatar}`
             }else{
                 alert('wrong login/password')
             }
