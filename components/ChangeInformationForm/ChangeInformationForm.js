@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useCurrentUserContext } from '../../context/CurrentUser';
-import Island from '../Island/Island'
+import FieldIsland from '../FieldIsland/FieldIsland';
 import styles from './ChangeInformationForm.module.scss'
 
 function ChangeInformationForm({changingField}) {
@@ -26,23 +26,25 @@ function ChangeInformationForm({changingField}) {
     };
     console.log([changingField])
   return (
-    <Island borderRadius={"15px"} padding={"8px 15px"}>
-    <div className={styles.settings_name}>
-      <p>Your {`${changingField}`} is: {user[changingField]}, wanna change it?</p>
+    <FieldIsland padding={"8px 0px"} margin={"5px 0px"}>
+    <div className={styles.container}>
+      {user[changingField] ? <p>Your {`${changingField}`} is: {user[changingField]}, wanna change it?</p> 
+      : 
+      <p>Your {`${changingField}`} does not set yet, wanna change it?</p>}
       <input
         type="text"
         value={value}
         onChange={inputHandler}
-        className={styles.settings_input}
+        className={styles.input}
       />
       <button
-        className={styles.settings_button}
+        className={styles.button}
         onClick={handleClick}
       >
         Change it!
       </button>
     </div>
-  </Island>
+  </FieldIsland>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Island.module.scss";
+import styles from "./FieldIsland.module.scss";
 
-function Island({
+function FieldIsland({
   children,
   padding,
   borderRadius,
@@ -31,4 +31,4 @@ function Island({
   );
 }
 
-export default Island;
+export default FieldIsland;

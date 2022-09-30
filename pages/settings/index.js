@@ -11,10 +11,26 @@ function Settings() {
     <>
       <Header />
       <div className={styles.container}>
-        <Island padding={"15px"} borderRadius={"30px"}>
-          <h1>Settings</h1>
-          <ChangeInformationForm changingField="name" />
-          <ChangeInformationForm changingField="birthday" />
+        <h1 className={styles.heading}>Settings</h1>
+        <Island
+          padding={"15px"}
+          borderRadius={"20px"}
+          display={"flex"}
+          justifyContent={"space-between"}
+          backgroundColor={"#2a2a2a"}
+        >
+          <Island borderRadius={"15px"} padding={"10px 15px"}>
+            <h3>General</h3>
+            <ChangeInformationForm changingField="name" />
+            <ChangeInformationForm changingField="birthday" />
+            <ChangeInformationForm changingField="birthplace" />
+          </Island>
+          <Island borderRadius={"15px"} padding={"10px 15px"}>
+            <h3>Something</h3>
+            <ChangeInformationForm changingField="name" />
+            <ChangeInformationForm changingField="birthday" />
+            <ChangeInformationForm changingField="birthplace" />
+          </Island>
         </Island>
       </div>
     </>
