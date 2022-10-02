@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useCurrentUserContext } from '../../context/CurrentUser';
 import FieldIsland from '../FieldIsland/FieldIsland';
 import styles from './ChangeInformationForm.module.scss'
+import { userUpdate } from '../../helpers/userUpdate';
 
 function ChangeInformationForm({changingField}) {
     const { user, setUser } = useCurrentUserContext();
@@ -11,20 +12,12 @@ function ChangeInformationForm({changingField}) {
       e.preventDefault();
       setValue(e.target.value);
     };
-    const handleClick = async () => {
-      await axios
-        .put(`https://6324bd619075b9cbee414973.mockapi.io/users/${user.id}`, {
-            [changingField]: value,
-          })
-        .then((res) => {
-          console.log(res.data);
-          setUser({ ...user, [changingField]: value });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    const handleClick = () => {
+      userUpdate(user, changingField, value)    
+      .then((res) => {
+        setUser(res.data);
+      });
     };
-    console.log([changingField])
   return (
     <FieldIsland padding={"8px 0px"} margin={"5px 0px"}>
     <div className={styles.container}>

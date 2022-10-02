@@ -11,6 +11,7 @@ function Island({
   margin,
   backgroundColor,
   color,
+  width
 }) {
   return (
     <div
@@ -24,6 +25,7 @@ function Island({
         margin: margin,
         backgroundColor: backgroundColor,
         color: color,
+        width: width
       }}
     >
       {children}
